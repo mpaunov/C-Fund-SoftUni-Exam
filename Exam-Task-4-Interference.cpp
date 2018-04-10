@@ -4,7 +4,6 @@
 #include <map>
 #include <vector>
 #include <queue>
-#include <set>
 
 class Message{
 private:
@@ -75,7 +74,7 @@ int main(){
 
     std::map<double, std::string> messageByFrequency;
 
-    std::priority_queue<Message, std::vector<Message>, std::less<Message> > resulContainer;
+    std::priority_queue<Message, std::vector<Message>, std::less<Message> > resultContainer;
 
     std::vector<std::string> result;
     std::vector<double> addedItems;
@@ -135,7 +134,7 @@ int main(){
 
                         Message currObj(str, priority);
 
-                        resulContainer.push(currObj);
+                        resultContainer.push(currObj);
                         addedItems.push_back(frequency);
 
                         }
@@ -145,12 +144,12 @@ int main(){
 
 
         }else if(line == "report"){
-            if(resulContainer.empty()){
+            if(resultContainer.empty()){
                 result.push_back("[no new messages]");
             }else{
-                    Message currObj = resulContainer.top();
+                    Message currObj = resultContainer.top();
                     result.push_back(currObj.getMessage(currObj));
-                    resulContainer.pop();
+                    resultContainer.pop();
 
             }
         }
